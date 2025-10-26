@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:spotflow_checkout/client.py
-from checkout import SpotflowCheckout
-=======
 from spotflow_sdk.checkout import SpotflowCheckout
->>>>>>> Stashed changes:spotflow_sdk/client.py
 
 class SpotflowApiClient:
     """

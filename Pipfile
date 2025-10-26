@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 requests = "*"
 pytest = "*"
+python-dotenv = "*"
+requests-mock = "*"
 
 [dev-packages]
 
