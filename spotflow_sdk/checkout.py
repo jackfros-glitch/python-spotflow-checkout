@@ -28,7 +28,7 @@ class SpotflowCheckout:
         self.session.mount("https://", HTTPAdapter(max_retries=retries))
         
 
-    def initialize_payment(self, amount: float, currency: str, local_currency: str, email: str, reference:str = None, callback_url:str = None, meta_data: dict = None):
+    def initialize_payment(self, amount: float, currency: str, local_currency: str, email: str, reference:str = None, callback_url:str = None, meta_data: dict = None, plan_id:str = None):
         """
         Initialize a Spotflow payment session.
 
@@ -38,8 +38,9 @@ class SpotflowCheckout:
             local_currency (str): This is the local currency of your region (e.g., "NGN, GHS or KSH")
             email (str): Customer's email
             reference (str): A unique reference ID to identify each customer's transaction.
-            callback_url (str): callback url
+            callback_url (str): This is the URL the browser redirects to on success of a payment
             meta_data : additional details
+            plan_id : This is the plan ID for a subscription plan
 
         Returns:
         dict: A dictionary containing the initialized payment session details.
@@ -77,6 +78,9 @@ class SpotflowCheckout:
         
         if meta_data:
             payload["metadata"] = meta_data
+
+        if plan_id:
+            payload['planId'] = plan_id
        
         response = self.session.post(url, headers=self.headers, json=payload, timeout=self.timeout)
         return response
