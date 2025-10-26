@@ -8,6 +8,9 @@ requests = "*"
 pytest = "*"
 python-dotenv = "*"
 requests-mock = "*"
+spotflow-python-sdk = {file = "."}
+build = "*"
+twine = "*"
 
 [dev-packages]
 
