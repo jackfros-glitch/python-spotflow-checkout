@@ -17,22 +17,34 @@ Available Features:
 
 ## Requirements
 
-1. ***A valid Spotflow API keys**
+1. **A valid Spotflow API keys**
 2. **python** version >= 3.12
 
 
 ## Installation
+
+
+
+using uv
+
+```
+  uv add spotflow-python-sdk
+
+```
 
 using pipenv
 
  ```bash
   pipenv install spotflow-python-sdk
 
-# or
+```
 
+using pip
+```
   pip install spotflow-python-sdk
 
-   ```
+```
+
 
 ## Usage
 
@@ -84,7 +96,7 @@ Read more about our parameters and how they can be used [here](https://docs.spot
 
 | Parameter           | Required |Description     |
 | ------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apiKey         | True              | Your API Secret |
+| secret key         | True              | Your API Secret |
 | reference           | False             | Your transaction reference. This MUST be unique for every transaction  |
 | amount              | True              | Amount to charge the customer. NB: For subscription payments, amount comes from the plan details. This is not required for subscription payments.   |
 | currency            | True             | Currency to charge in.           |
