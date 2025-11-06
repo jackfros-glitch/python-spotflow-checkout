@@ -52,9 +52,9 @@ using pip
 ```
 from spotflow_sdk import SpotflowApiClient
 
-api_key = "sk_test_xxxxxxx"
+secret_key = "sk_test_xxxxxxx"
 
-api_client = SpotflowApiClient(api_key=api_key)
+api_client = SpotflowApiClient(secret_key=secret_key)
 
 payment_data = {
     "amount": 2000,
@@ -72,7 +72,7 @@ Initializing a Payment
 ```
 from spotflow_sdk import SpotflowApiClient
 
-api_client = SpotflowApiClient(api_key="sk_test_xxxxx", timeout=10, max_retries=3)
+api_client = SpotflowApiClient(secret_key="sk_test_xxxxx", timeout=10, max_retries=3)
 
 payment_data = {
     "amount": 5000,

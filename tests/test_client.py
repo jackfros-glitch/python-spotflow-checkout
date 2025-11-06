@@ -4,28 +4,28 @@ import requests_mock
 from spotflow_sdk import SpotflowApiClient
 from spotflow_sdk.checkout import SpotflowCheckout
 from tests.conftest import (
-    api_key, 
+    secret_key, 
     payment_data, 
     payment_data_response, 
-    invalid_api_key,
+    invalid_secret_key,
     invalid_payment_data,
     invalid_payment_data_response,
     initialize_payment_url
     )
 
-def test_client_creates_checkout_instance(api_key):
-    client = SpotflowApiClient(api_key=api_key)
+def test_client_creates_checkout_instance(secret_key):
+    client = SpotflowApiClient(secret_key=secret_key)
     assert isinstance(client.checkout, SpotflowCheckout)
-    assert client.checkout.api_key == api_key
+    assert client.checkout.secret_key == secret_key
     assert client.checkout.timeout == client.timeout
 
 def test_initializes_payment_with_client_returns_success(
-        api_key, 
+        secret_key, 
         payment_data, 
         payment_data_response,
         initialize_payment_url
         ):
-    client = SpotflowApiClient(api_key)
+    client = SpotflowApiClient(secret_key)
     with requests_mock.Mocker() as m:
         url = initialize_payment_url
         m.post(
@@ -39,8 +39,8 @@ def test_initializes_payment_with_client_returns_success(
     assert response.json()['status'] == "pending"
 
 
-def test_initialize_payment_with_invalid_api_key_returns_error(invalid_api_key, initialize_payment_url, payment_data):
-    client = SpotflowApiClient(api_key=invalid_api_key)
+def test_initialize_payment_with_invalid_secret_key_returns_error(invalid_secret_key, initialize_payment_url, payment_data):
+    client = SpotflowApiClient(secret_key=invalid_secret_key)
     with requests_mock.Mocker() as m:
         url = initialize_payment_url
         m.post(

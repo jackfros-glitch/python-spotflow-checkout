@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv 
 
 @pytest.fixture
-def api_key():
-    key = os.getenv("SPOTFLOW_API_KEY")
+def secret_key():
+    key = os.getenv("SPOTFLOW_secret_key")
     return key
 
 @pytest.fixture
@@ -49,7 +49,7 @@ def invalid_payment_data_response():
     }
 
 @pytest.fixture
-def invalid_api_key():
+def invalid_secret_key():
     return "invalid_key"
 
 @pytest.fixture

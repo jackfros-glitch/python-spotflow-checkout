@@ -9,12 +9,12 @@ class SpotflowCheckout:
     and session persistence to ensure reliable API communication.
     """
 
-    def __init__(self, api_key:str, timeout_in_sec:int, max_retries:int):
-        self.api_key = api_key
+    def __init__(self, secret_key:str, timeout_in_sec:int, max_retries:int):
+        self.secret_key = secret_key
         self.timeout = timeout_in_sec
         self.base_url = "https://api.spotflow.co/api/v1"
         self.headers = {
-            "Authorization": f"Bearer {self.api_key}",
+            "Authorization": f"Bearer {self.secret_key}",
             "Content-Type": "application/json",
         }
 
