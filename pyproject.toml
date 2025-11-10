@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spotflow-python-sdk"
+version = "0.1.0"
+description = "Python SDK Library for accepting payments with Spotflow"
+authors = [
+    {name = "Manasseh Hirekaan", email = "hirekaanm3@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests>=2.32.5",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jackfros-glitch/python-spotflow-checkout"
